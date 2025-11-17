@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 100%;
+            height: max-content;
+            padding: 10px 20px;
+            border: solid black;
+            margin-top: 30px;
+        }
+
+        .flp_box_parnt {
+            width: 350px;
+            height: 350px;
+            /* border: solid brown; */
+            border-radius: 10px;
+            perspective: 1000px;
+        }
+        .flp_box{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* border: solid black 1px; */
+            transform-style: preserve-3d;
+            transition: all .6s ease-in-out;
+        }
+        
+        .flp_box_parnt:hover .flp_box{
+            transform: rotatey(180deg);
+        }
+        
+        .front, .back{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 20px;
+            font-size: 30px;
+            text-align: center;
+            padding-top: 40px;
+            backface-visibility: hidden;
+        }
+
+        .front{
+            background-color: yellow;
+        }
+        .back{
+            background-color: green;
+            transform: rotatey(180deg);
+        }
+
+ 
+    </style>
+
+</head>
+<body>
+     <main>
+        <!-- main ka tag border ha  -->
+
+        <div class="flp_box_parnt">
+
+            <div class="flp_box"> <!-- relative parent  -->
+
+                <div class="front"> front </div>
+                <div class="back"> back </div>
+
+            </div>
+
+
+
+        </div>
+    </main>
+
+</body>
+</html>
