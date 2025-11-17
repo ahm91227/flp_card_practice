@@ -1,86 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-      <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        main {
-            width: 100%;
+        .main {
             height: max-content;
+            width: 100%;
             padding: 10px 20px;
-            border: solid black;
-            margin-top: 30px;
+            border: solid black 1px;
+            margin-top: 20px;
         }
 
-        .flp_box_parnt {
-            width: 350px;
-            height: 350px;
-            /* border: solid brown; */
+        .flp_prnt {
+            height: 300px;
+            width: 300px;
+            border: solid black 1px;
             border-radius: 10px;
             perspective: 1000px;
         }
-        .flp_box{
-            width: 100%;
+
+        .flp_div {
             height: 100%;
+            border: solid black 1px;
+            border-radius: 10px;
             position: relative;
-            /* border: solid black 1px; */
+            transition: all .6s linear;
             transform-style: preserve-3d;
-            transition: all .6s ease-in-out;
         }
-        
-        .flp_box_parnt:hover .flp_box{
-            transform: rotatey(180deg);
+
+        .flp_prnt:hover .flp_div {
+            transform: translateY(180deg);
         }
-        
-        .front, .back{
-            width: 100%;
-            height: 100%;
+
+        .front_div, .back_div {
             position: absolute;
+            height: 100%;
+            width: 100%;
             top: 0;
             left: 0;
+            font-size: 20px;
             border-radius: 20px;
-            font-size: 30px;
             text-align: center;
-            padding-top: 40px;
+            padding-top: 20px;
             backface-visibility: hidden;
+
+
         }
 
-        .front{
-            background-color: yellow;
-        }
-        .back{
-            background-color: green;
-            transform: rotatey(180deg);
+        .front_div {
+            background-color: blue;
         }
 
- 
+        .back_div {
+            background-color: red;
+            transform: translateY(180deg);
+        }
     </style>
-
 </head>
+
 <body>
-     <main>
-        <!-- main ka tag border ha  -->
-
-        <div class="flp_box_parnt">
-
-            <div class="flp_box"> <!-- relative parent  -->
-
-                <div class="front"> front </div>
-                <div class="back"> back </div>
-
+    <main class="main">
+        <div class="flp_prnt">
+            <div class="flp_div">
+                <div class="front_div">front</div>
+                <div class="back_div">back</div>
             </div>
-
-
-
         </div>
     </main>
 
 </body>
+
 </html>
