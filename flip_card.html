@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Document</title>
     <style>
         * {
@@ -13,7 +14,7 @@
         }
 
         .main {
-            height: max-content;
+            height: 100vh;
             width: 100%;
             padding: 10px 20px;
             border: solid black 1px;
@@ -23,14 +24,16 @@
         .flp_prnt {
             height: 300px;
             width: 300px;
-            border: solid black 1px;
+            /* border: solid black 1px; */
             border-radius: 10px;
             perspective: 1000px;
+            display: inline-block;
+            vertical-align: top;
         }
 
         .flp_div {
             height: 100%;
-            border: solid black 1px;
+            /* border: solid black 1px; */
             border-radius: 10px;
             position: relative;
             transition: all .6s linear;
@@ -38,10 +41,11 @@
         }
 
         .flp_prnt:hover .flp_div {
-            transform: translateY(180deg);
+            transform: rotateY(-180deg);
         }
 
-        .front_div, .back_div {
+        .front_div,
+        .back_div {
             position: absolute;
             height: 100%;
             width: 100%;
@@ -57,12 +61,164 @@
         }
 
         .front_div {
-            background-color: blue;
+            background-color: rgba(255, 0, 255, 0.479);
         }
 
         .back_div {
-            background-color: red;
-            transform: translateY(180deg);
+            background-color: rgba(0, 255, 76, 0.747);
+            transform: rotateY(180deg);
+        }
+
+        .flp_prnt2 {
+            height: 300px;
+            width: 300px;
+            /* border: solid black 1px; */
+            border-radius: 10px;
+            perspective: 1000px;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 200px;
+        }
+
+        .flp_box {
+            height: 100%;
+            /* border: solid black 1px; */
+            border-radius: 10px;
+            position: relative;
+            transition: all .6s linear;
+            transform-style: preserve-3d;
+        }
+
+        .flp_prnt2:hover .flp_box {
+            transform: rotatex(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            font-size: 20px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 20px;
+            backface-visibility: hidden;
+
+
+        }
+
+        .front {
+            background-color: greenyellow;
+        }
+
+        .back {
+            background-color: rgba(128, 19, 0, 0.678);
+            transform: rotateX(180deg);
+        }
+        .s1{
+            height: 100vh;
+            width: 100%;
+            padding-top: 1px;
+            background-color: rgb(128, 0, 49);
+        }
+        .s_div{
+            height: 70px;
+            width: 300px;
+            /* border: solid black 1px; */
+            padding-top: .1px;
+            margin: auto;
+            margin-top: 80px;
+            border-radius: 10px;
+            background-color: rgba(127, 255, 170, 0.726);
+            transition: all .4s ease-in-out;
+        }
+        .ptag{
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .s2{
+            height: 100vh;
+            width: 100%;
+            padding-top: .1px;
+            background-color: rgba(255, 166, 0, 0.719);
+        }
+        .div_s2{
+            height: max-content;
+            width: 150px;
+            /* border: solid black 1px; */
+            margin: auto;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        .s2_ptag{
+            display: inline-block;
+            vertical-align: top;
+            font-size: 30px;
+            color: red;
+            margin-left: 3px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: flow .5s ease-in-out forwards;
+            
+        }
+        @keyframes flow{
+            from{
+                transform: translatey(30px);
+            opacity: 0;
+
+            }
+            to{
+                transform: translatey(0px);
+            opacity: 1;
+
+            }
+        }
+       
+        .s_div2{
+            height: max-content;
+            width: 150px;
+            /* border: solid black 1px; */
+            margin: auto;
+            margin-top: 170px;
+            overflow: hidden;
+
+        }
+        .s_ptag3{
+            font-size: 30px;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 3px;
+            color: blue;
+            opacity: 0;
+            transform: translatey(-30px);
+            animation: flow2 .5s ease-in-out forwards;
+        }
+        @keyframes flow2{
+            from{
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        .p1{
+            animation-delay: .2s;
+        }
+        .p2{
+            animation-delay: .4s;
+        }
+        .p3{
+            animation-delay: .6s;
+        }
+        .p4{
+            animation-delay: .8s;
         }
     </style>
 </head>
@@ -75,8 +231,49 @@
                 <div class="back_div">back</div>
             </div>
         </div>
+        <div class="flp_prnt2">
+            <div class="flp_box">
+                <div class="front">front</div>
+                <div class="back">back</div>
+            </div>
+        </div>
+        <!-- ///////////////// -->
     </main>
+    <section class="s1">
+        <div class="s_div"  data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
+    
+     <p class="ptag">HELLO!</p>
+    </div>>
+        
+    </section>
+    <!-- ////////////// -->
+     <section class="s2">
 
+        <div class="div_s2">
+
+            <p class="s2_ptag">A</p>
+            <p class="s2_ptag p1">R</p>
+            <p class="s2_ptag p2">H</p>
+            <p class="s2_ptag p3">A</p>
+            <p class="s2_ptag p4">M</p>
+
+        </div>
+
+        <div class="s_div2">
+            <p class="s_ptag3">A</p>
+            <p class="s2_ptag p1 ">R</p>
+            <p class="s_ptag3 p2 ">H</p>
+            <p class="s2_ptag p3 ">A</p>
+            <p class="s_ptag3 p4 ">M</p>
+        </div>
+
+     </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
